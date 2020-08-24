@@ -3,6 +3,7 @@ package git.soulbgm.pojo;
 import lombok.Data;
 
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * @author SoulBGM
@@ -13,13 +14,14 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    private String id;
+    private Long id;
 
     private String name;
 
     private String address;
 
-    private String age;
+    private Integer age;
 
-    private String birthday;
+    private Date birthday;
+
 }
