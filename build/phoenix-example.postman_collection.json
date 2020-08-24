@@ -1,0 +1,168 @@
+{
+	"id": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+	"name": "phoenix-example",
+	"description": "",
+	"order": [
+		"769af0fb-88e3-2d67-087c-1d40cfb5a623",
+		"3c576419-a15a-44ad-c49c-abd65baa942f",
+		"107783dd-1c0c-95ce-9ba6-acf031757282",
+		"fcb08fc5-69bb-8b3b-ec13-1c77007c7d4e",
+		"7813e1a3-766a-bb03-6aa2-88a91653f8fe"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1598250013500,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "107783dd-1c0c-95ce-9ba6-acf031757282",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8080/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598258101423,
+			"name": "修改用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "e3bd4dce-d552-0808-2a05-2d5a50bcee07",
+			"rawModeData": "{\n\t\"id\":\"1\",\n\t\"name\":\"王五1\",\n\t\"address\":\"北京1\",\n\t\"age\":\"88\",\n\t\"birthday\":\"2020-08-24\"\n}"
+		},
+		{
+			"id": "3c576419-a15a-44ad-c49c-abd65baa942f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8080/insertList",
+			"folder": "21a72768-a0d1-3287-f7fd-63552dd30f06",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598261340904,
+			"name": "批量添加用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": [],
+			"rawModeData": "[\n\t{\n\t\t\"id\":\"6\",\n\t\t\"name\":\"六\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t},\n\t{\n\t\t\"id\":\"7\",\n\t\t\"name\":\"七\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t},\n\t{\n\t\t\"id\":\"8\",\n\t\t\"name\":\"八\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t}\n]"
+		},
+		{
+			"id": "769af0fb-88e3-2d67-087c-1d40cfb5a623",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8080/save",
+			"folder": "21a72768-a0d1-3287-f7fd-63552dd30f06",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598258115807,
+			"name": "添加用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\":\"2\",\n\t\"name\":\"李四\",\n\t\"address\":\"上海\",\n\t\"age\":\"18\",\n\t\"birthday\":\"2020-08-24\"\n}"
+		},
+		{
+			"id": "7813e1a3-766a-bb03-6aa2-88a91653f8fe",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.1.5.91:8080/find?name=七",
+			"queryParams": [
+				{
+					"key": "name",
+					"value": "七",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598261950066,
+			"name": "查询用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": []
+		},
+		{
+			"id": "fcb08fc5-69bb-8b3b-ec13-1c77007c7d4e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.1.5.91:8080/del",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "ids",
+					"value": "1,2,3,4,5,6",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598261589692,
+			"name": "删除用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": []
+		}
+	]
+}
