@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import tk.mybatis.spring.annotation.MapperScan;
 
 import javax.sql.DataSource;
 
@@ -18,6 +19,7 @@ import javax.sql.DataSource;
  * @date 2020/8/23 21:47
  */
 @SpringBootApplication
+@MapperScan(basePackages = "git.soulbgm.mapper")
 public class Application {
 
     public static void main(String[] args) {

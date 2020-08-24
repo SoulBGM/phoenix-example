@@ -49,13 +49,13 @@
         </dependency>
         <dependency>
             <!--开源架包-->
-            <!--<groupId>org.apache.phoenix</groupId>-->
-            <!--<artifactId>phoenix-core</artifactId>-->
-            <!--<version>4.12.0-HBase-1.3</version>-->
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+            <version>4.14.1-HBase-1.2</version>
             <!--阿里封装-->
-            <groupId>com.aliyun.phoenix</groupId>
+            <!--<groupId>com.aliyun.phoenix</groupId>
             <artifactId>ali-phoenix-core</artifactId>
-            <version>4.12.0-AliHBase-1.1-0.4-Final</version>
+            <version>4.14.1-AliHBase-1.2-0.4-Final</version>-->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
