@@ -4,6 +4,7 @@ import git.soulbgm.common.pojo.ResultData;
 import git.soulbgm.common.pojo.ReturnCode;
 import git.soulbgm.mapper.UserMapper;
 import git.soulbgm.pojo.User;
+import git.soulbgm.utils.ModelBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,12 +25,16 @@ public class UserController {
 
     @PostMapping("save")
     public ResultData save(@RequestBody User user) {
+        ModelBuilder.builder(user);
         int result = userMapper.upsert(user);
         return ResultData.getResultData(result > 0 ? ReturnCode.SUCCESS : ReturnCode.SAVE_FAIL);
     }
 
     @PostMapping("insertList")
     public ResultData save(@RequestBody List<User> userList) {
+        for (User user : userList) {
+            ModelBuilder.builder(user);
+        }
         int result = userMapper.upsertList(userList);
         return ResultData.getResultData(result > 0 ? ReturnCode.SUCCESS : ReturnCode.SAVE_FAIL);
     }

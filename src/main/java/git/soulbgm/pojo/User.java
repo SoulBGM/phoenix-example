@@ -1,5 +1,7 @@
 package git.soulbgm.pojo;
 
+import git.soulbgm.common.annotation.IdBuild;
+import git.soulbgm.common.enums.IdType;
 import lombok.Data;
 
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import java.util.Date;
 public class User {
 
     @Id
+    @IdBuild(IdType.SEQUENCE)
     private Long id;
 
     private String name;

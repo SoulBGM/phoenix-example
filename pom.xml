@@ -51,7 +51,8 @@
             <!--开源架包-->
             <groupId>org.apache.phoenix</groupId>
             <artifactId>phoenix-core</artifactId>
-            <version>4.14.1-HBase-1.2</version>
+            <version>4.8.1-HBase-1.0</version>
+            <!--<version>4.14.1-HBase-1.2</version>-->
             <!--阿里封装-->
             <!--<groupId>com.aliyun.phoenix</groupId>
             <artifactId>ali-phoenix-core</artifactId>
