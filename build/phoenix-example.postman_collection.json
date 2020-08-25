@@ -7,7 +7,8 @@
 		"3c576419-a15a-44ad-c49c-abd65baa942f",
 		"107783dd-1c0c-95ce-9ba6-acf031757282",
 		"fcb08fc5-69bb-8b3b-ec13-1c77007c7d4e",
-		"7813e1a3-766a-bb03-6aa2-88a91653f8fe"
+		"7813e1a3-766a-bb03-6aa2-88a91653f8fe",
+		"501ff6d6-fdd7-119a-f193-1525fe08a229"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -37,14 +38,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1598258101423,
+			"time": 1598321666999,
 			"name": "修改用户",
 			"description": "",
 			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
 			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "e3bd4dce-d552-0808-2a05-2d5a50bcee07",
-			"rawModeData": "{\n\t\"id\":\"1\",\n\t\"name\":\"王五1\",\n\t\"address\":\"北京1\",\n\t\"age\":\"88\",\n\t\"birthday\":\"2020-08-24\"\n}"
+			"rawModeData": "{\n\t\"id\":\"1\",\n\t\"name\":\"王五1\",\n\t\"address\":\"北京1\",\n\t\"age\":\"88\",\n\t\"birthday\":\"2020-08-24 10:12:12\"\n}"
 		},
 		{
 			"id": "3c576419-a15a-44ad-c49c-abd65baa942f",
@@ -69,12 +68,55 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1598261340904,
+			"time": 1598334813753,
 			"name": "批量添加用户",
 			"description": "",
 			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
 			"responses": [],
-			"rawModeData": "[\n\t{\n\t\t\"id\":\"6\",\n\t\t\"name\":\"六\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t},\n\t{\n\t\t\"id\":\"7\",\n\t\t\"name\":\"七\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t},\n\t{\n\t\t\"id\":\"8\",\n\t\t\"name\":\"八\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24\"\n\t}\n]"
+			"rawModeData": "[\n\t{\n\t\t\"id\":\"3\",\n\t\t\"name\":\"六\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24 10:10:10\"\n\t},\n\t{\n\t\t\"id\":\"4\",\n\t\t\"name\":\"七\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24 10:10:10\"\n\t},\n\t{\n\t\t\"id\":\"5\",\n\t\t\"name\":\"八\",\n\t\t\"address\":\"上海\",\n\t\t\"age\":\"18\",\n\t\t\"birthday\":\"2020-08-24 10:10:10\"\n\t}\n]"
+		},
+		{
+			"id": "501ff6d6-fdd7-119a-f193-1525fe08a229",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.1.5.91:8080/findByPage?pageNum=1&pageSize=5&name=六",
+			"queryParams": [
+				{
+					"key": "pageNum",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pageSize",
+					"value": "5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "六",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1598337769823,
+			"name": "分页查询用户",
+			"description": "",
+			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
+			"responses": []
 		},
 		{
 			"id": "769af0fb-88e3-2d67-087c-1d40cfb5a623",
@@ -99,22 +141,22 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1598258115807,
+			"time": 1598336417974,
 			"name": "添加用户",
 			"description": "",
 			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
 			"responses": [],
-			"rawModeData": "{\n\t\"id\":\"2\",\n\t\"name\":\"李四\",\n\t\"address\":\"上海\",\n\t\"age\":\"18\",\n\t\"birthday\":\"2020-08-24\"\n}"
+			"rawModeData": "{\n\t\"id\":\"9\",\n\t\"name\":\"李四\",\n\t\"address\":\"上海\",\n\t\"age\":\"18\",\n\t\"birthday\":\"2020-08-24 10:12:12\"\n}"
 		},
 		{
 			"id": "7813e1a3-766a-bb03-6aa2-88a91653f8fe",
 			"headers": "",
 			"headerData": [],
-			"url": "http://10.1.5.91:8080/find?name=七",
+			"url": "http://10.1.5.91:8080/find?name=",
 			"queryParams": [
 				{
 					"key": "name",
-					"value": "七",
+					"value": "",
 					"equals": true,
 					"description": "",
 					"enabled": true
@@ -129,7 +171,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1598261950066,
+			"time": 1598321815253,
 			"name": "查询用户",
 			"description": "",
 			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
@@ -148,7 +190,7 @@
 			"data": [
 				{
 					"key": "ids",
-					"value": "1,2,3,4,5,6",
+					"value": "1,2,3,4,5,6,7,8",
 					"description": "",
 					"type": "text",
 					"enabled": true
@@ -158,7 +200,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1598261589692,
+			"time": 1598321773809,
 			"name": "删除用户",
 			"description": "",
 			"collectionId": "8e35a6bd-1f08-fc3b-88f6-12c45f81ed39",
