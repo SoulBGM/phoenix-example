@@ -1,5 +1,8 @@
 package git.soulbgm.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import git.soulbgm.common.pojo.PageInfo;
 import git.soulbgm.common.pojo.ResultData;
 import git.soulbgm.common.pojo.ReturnCode;
 import git.soulbgm.mapper.UserMapper;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -17,6 +21,14 @@ public class UserController {
 
     @Resource
     private UserMapper userMapper;
+
+    @GetMapping("findByPage")
+    public ResultData findByPage(Integer pageNum, Integer pageSize, User user) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> list = userMapper.select(user);
+        PageInfo pageInfo = PageInfo.getPageInfo((Page) list);
+        return ResultData.getResultData(ReturnCode.SUCCESS, pageInfo);
+    }
 
     @GetMapping("find")
     public ResultData find(User user) {
