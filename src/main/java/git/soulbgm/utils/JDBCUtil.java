@@ -38,13 +38,13 @@ public class JDBCUtil {
 
     public static void main(String[] args) {
         User user = new User();
-        user.setId("2");
+        user.setId(1L);
         user.setName("张三");
         user.setAddress("北京");
-        user.setAge("26");
-        user.setBirthday("2020-08-24");
-        int result = JDBCUtil.executeUpdate("upsert into user (id,name,address,age,birthday) values (?,?,?,?,?)",
-                new String[]{user.getId(), user.getName(), user.getAddress(), user.getAge(), user.getBirthday()});
+        user.setAge(26);
+        user.setBirthday(new Date());
+        int result = JDBCUtil.executeUpdate("upsert into xf.user (id,name,address,age,birthday) values (?,?,?,?,?)",
+                new Object[]{user.getId(), user.getName(), user.getAddress(), user.getAge(), user.getBirthday()});
         System.out.println(result);
         /*List<User> userList = JDBCUtil.find("select * from user", null, User.class);
         System.out.println(userList);*/

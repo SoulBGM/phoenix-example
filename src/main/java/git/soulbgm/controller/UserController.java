@@ -36,7 +36,7 @@ public class UserController {
 
     @PostMapping("del")
     public ResultData del(String ids) {
-        int result = userMapper.deleteByIds(formatIds(ids));
+        int result = userMapper.deleteByIds(ids);
         return ResultData.getResultData(result > 0 ? ReturnCode.SUCCESS : ReturnCode.REMOVE_FAIL);
     }
 
