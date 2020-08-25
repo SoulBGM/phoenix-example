@@ -7,6 +7,7 @@ spring boot + tkMapper + PageHelper + phoenix 的使用例子
 下载phoenix地址 http://archive.apache.org/dist/phoenix/  
 根据hbase版本选择下载phoenix的版本如下:
 
+![Image](https://gitee.com/SoulBGM/phoenix-example/blob/master/image/20200825145924.png)
 
 # phoenix常用函数
 
