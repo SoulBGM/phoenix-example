@@ -4,10 +4,98 @@
 spring boot + tkMapper + PageHelper + phoenix 的使用例子
 
 #### 安装phoenix
-下载phoenix地址 http://archive.apache.org/dist/phoenix/  
+1. 下载phoenix地址 http://archive.apache.org/dist/phoenix/  
 根据hbase版本选择下载phoenix的版本如下:
-
 ![phoenix](https://images.gitee.com/uploads/images/2020/0825/150933_5ab3d07e_1861024.png "20200825145924.png")
+2. 以apache-phoenix-4.14.1-HBase-1.2-bin.tar.gz文件为例子目录结构如下:
+![phoenix](https://images.gitee.com/uploads/images/2020/0825/151613_b2485d51_1861024.png "2020-08-25_151503.png")
+3. 将如下的文件拷贝到hbase安装目录的lib目录下  
+**phoenix-4.14.1-HBase-1.2-client.jar**  
+**phoenix-4.14.1-HBase-1.2-server.jar**  
+**phoenix-core-4.14.1-HBase-1.2.jar**  
+4. 重启hbase
+5. 运行./bin/sqlline.py zk的IP:zk端口  
+出现如下内容证明成功
+```shell script
+Building list of tables and columns for tab-completion (set fastconnect to true to skip)...
+138/138 (100%) Done
+Done
+sqlline version 1.2.0
+0: jdbc:phoenix:> 
+```
+6. 查看表
+```shell script
+0: jdbc:phoenix:> !table
++------------+--------------+-------------+---------------+----------+------------+----------------------------+-----------------+--------------+---------+
+| TABLE_CAT  | TABLE_SCHEM  | TABLE_NAME  |  TABLE_TYPE   | REMARKS  | TYPE_NAME  | SELF_REFERENCING_COL_NAME  | REF_GENERATION  | INDEX_STATE  | IMMUTAB |
++------------+--------------+-------------+---------------+----------+------------+----------------------------+-----------------+--------------+---------+
+|            | SYSTEM       | CATALOG     | SYSTEM TABLE  |          |            |                            |                 |              | false   |
+|            | SYSTEM       | FUNCTION    | SYSTEM TABLE  |          |            |                            |                 |              | false   |
+|            | SYSTEM       | LOG         | SYSTEM TABLE  |          |            |                            |                 |              | true    |
+|            | SYSTEM       | SEQUENCE    | SYSTEM TABLE  |          |            |                            |                 |              | false   |
+|            | SYSTEM       | STATS       | SYSTEM TABLE  |          |            |                            |                 |              | false   |
++------------+--------------+-------------+---------------+----------+------------+----------------------------+-----------------+--------------+---------+
+0: jdbc:phoenix:> !exit
+Closing: org.apache.phoenix.jdbc.PhoenixConnection
+```
+7. 进入hbase查看是否存在这些表
+```shell script
+[root@node1 phoenix-4.14.1]# hbase shell
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/hbase-1.2.4/lib/phoenix-4.14.1-HBase-1.2-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hbase-1.2.4/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop-2.7.3/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.4, r67592f3d062743907f8c5ae00dbbe1ae4f69e5af, Tue Oct 25 18:10:20 CDT 2016
+
+hbase(main):001:0> list
+TABLE                                                                                                                                                      
+SYSTEM.CATALOG                                                                                                                                             
+SYSTEM.FUNCTION                                                                                                                                            
+SYSTEM.LOG                                                                                                                                                 
+SYSTEM.MUTEX                                                                                                                                               
+SYSTEM.SEQUENCE                                                                                                                                            
+SYSTEM.STATS                                                                                                                                               
+6 row(s) in 0.3070 seconds
+
+=> ["SYSTEM.CATALOG", "SYSTEM.FUNCTION", "SYSTEM.LOG", "SYSTEM.MUTEX", "SYSTEM.SEQUENCE", "SYSTEM.STATS"]
+hbase(main):002:0> 
+```
+如果以上都成功显示则表示安装phoenix成功
+
+# phoenix常用命令
+1. 查看当前库中存在的表  
+!tables
+2. 查看表结构  
+!describe 表名
+3. 创建HBase映射表  
+create table if not exists user (id bigint primary key, name varchar, address varchar, age integer, birthday date);
+4. 添加列  
+alter table user add username varchar,password varchar;
+5. 删除列  
+alter table user drop column username,password;
+6. 插入或更新表数据  
+upsert into 表名 (字段1,字段2,...) values (字段1值,字段2值,...);
+7. 批量插入或更新表数据  
+upsert into 表名 (字段1,字段2,...) select 字段1值,字段2值,... union all select 字段1值,字段2值,...;
+8. 查询数据  
+select * from 表名 where id = 1;
+9. 分页查询数据  
+select * from 表名 limit 10 offset 10;  
+从第11行开始查10条
+10. 删除表数据  
+delete from 表名 where id = 1;
+11. 删除表  
+drop table user;
+12. 退出phoenix命令行  
+!quit 或 !exit
+
+注: 
+1. 字段后加上primary key，将自动与rowkey关联
+2. 添加字段时不加双引号，字段名自动转为大写
+3. 字段需要带上列族，如：”列族”.”列名” 类型  
 
 # phoenix常用函数
 
